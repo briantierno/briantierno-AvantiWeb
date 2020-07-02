@@ -1,0 +1,302 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@*<div class="jumbotron">
+        <h1>ASP.NET</h1>
+        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
+        <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <h2>@Avanti_MVC.Models.ClientesService.ObtenerClientesPorTelefono("1169781508").Nombre</h2>
+            <p>
+                ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
+                enables a clean separation of concerns and gives you full control over markup
+                for enjoyable, agile development.
+            </p>
+            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Get more libraries</h2>
+            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
+            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Web Hosting</h2>
+            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        </div>
+    </div>*@
+
+<div class="navbar-fixed">
+    <nav class="red">
+        <div class="nav-wrapper container">
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
+            <a href="#" class="brand-logo" style="position: relative; margin-left: -45px;">
+                <i>
+                    <img class="dropdown-trigger2" data-target="carrito" id="logo" src="/Avanti Logo.png" alt="">
+                    <i id="contador" style="
+                        font-family: Arial, Helvetica, sans-serif;
+                        position: relative;
+                        top: -5px;
+                        right: 20px;
+                        color: rgb(255, 255, 255);
+                        display: initial;
+                        font-size: 12px;
+                        font-weight: 700;
+                        padding: 4px 8px 4px 8px;
+                        border-radius: 100%;
+                        background-color: rgb(221, 218, 123);
+                        border-color: rgb(255, 255, 255);
+                        float: none;
+
+                           ">1</i><i id="arrow" class="material-icons right" style="left: -65px; position: relative; margin-right: -30px;">arrow_drop_down</i>
+                </i> AVANTI
+            </a>
+
+            <ul class="right hide-on-med-and-down">
+
+                <li><a href="#"><i class="right"><img src="/images/whatsapp.png" width="15" height="15" alt=""></i> 11-1234-5678</a></li>
+                <li class="active"><a href="#nuestros productos">Nuestros Productos</a></li>
+                <li>
+                    <a class="dropdown-trigger" href="#!" data-target="dropdown1">ORDENAR<i class="material-icons right">arrow_drop_down</i></a>
+                    <ul id="dropdown1" class="dropdown-content">
+                        <li><a href="#!">RINCON DE MILBERG</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#!">TIGRE</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#!">SAN FERNANDO</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#!">BENAVIDEZ</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+<ul class="sidenav" id="mobile-demo">
+
+    <li><a href="#"><i><img src="/images/whatsapp.png" width="20" height="20" alt="envianos un whatsapp!!"></i> 11-1234-5678</a></li>
+    <li class="active"><a href="#nuestros productos">Nuestros Productos</a></li>
+    <li>
+        <a class="dropdown-trigger" href="#!" data-target="dropdown2">ORDENAR<i class="material-icons right">arrow_drop_down</i></a>
+        <ul id="dropdown2" class="dropdown-content">
+            <li><a href="#!">RINCON DE MILBERG</a></li>
+            <li class="divider"></li>
+            <li><a href="#!">TIGRE</a></li>
+            <li class="divider"></li>
+            <li><a href="#!">SAN FERNANDO</a></li>
+            <li class="divider"></li>
+            <li><a href="#!">BENAVIDEZ</a></li>
+        </ul>
+</ul>
+
+
+<div id="carrito" class="dropdown-content" style="font-family: Arial, Helvetica, sans-serif; color: rgb(0, 0, 0); font-size: 0.5em;
+        background-color: rgb(255, 255, 255); border-radius: 10px;">
+    <table id="lista-carrito" style="line-height: 15px;" class="table">
+        <thead>
+            <tr class="red lighten-5">
+                <th style="padding: 0px 10px 0px 10px; text-align: center;"></th>
+                <th style="padding: 0px 25px 0px 0px; text-align: center; line-height: 40px;">PRODUCTO</th>
+                <th style="padding: 0px 50px 0px 50px; text-align: center; ">*</th>
+                <th style="padding: 0px 5px 0px 5px ; text-align: center; ">$</th>
+                <th style="padding: 0px; text-align: center; "><span class="material-icons">remove_shopping_cart</span> </th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+        <tr>
+            <th style="padding: 0px; text-align: right; line-height: 25px; border-top: 1px solid rgba(0,0,0,0.12);"></th>
+            <th style="padding: 0px; text-align: right; line-height: 25px; border-top: 1px solid rgba(0,0,0,0.12);">TOTAL:</th>
+            <th style="padding: 0px; text-align: right; line-height: 25px; border-top: 1px solid rgba(0,0,0,0.12);">$</th>
+            <th style="padding: 0px; text-align: left; line-height: 25px; border-top: 1px solid rgba(0,0,0,0.12);"><span class="badge" id="spantotal"></span> </th>
+            <th style="padding: 0px; text-align: center; line-height: 25px; border-top: 1px solid rgba(0,0,0,0.12);"></th>
+        </tr>
+    </table>
+    <div class="center">
+        <a href="#" id="vaciar-carrito" style="display: inline-table; min-width: 50px; margin: 2px;" class="btn-small btn-block red">VACIAR<span class="material-icons right">remove_shopping_cart</span></a>
+        <a href="#" id="procesar-pedido" style="display: inline-table; min-width: 50px; margin: 2px;" class="btn-small  btn-block">PAGAR<span class="material-icons right">payment</span></a>
+    </div>
+</div>
+
+<div style="text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000, 1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;" class="slider container">
+    <ul class="slides">
+        <li>
+            <img src="images/pizza1.png"> <!-- random image -->
+            <div class="caption center-align">
+                <h3>Pizzas, Calzones y Empanadas</h3>
+                <h5 class="light grey-text text-lighten-3">Desde 1999 en el barrio</h5>
+            </div>
+        </li>
+        <li>
+            <img src="images/pizza2.png"> <!-- random image -->
+            <div class="caption left-align">
+                <h3>Tenemos una gran variedad de gustos</h3>
+                <h5 class="light grey-text text-lighten-3">Probalas y descubrí el verdadero sabor de una pizza</h5>
+            </div>
+        </li>
+        <li>
+            <img src="/images/empanadas.png"> <!-- random image -->
+            <div class="caption right-align">
+                <h3>Empanadas y Canastitas</h3>
+                <h5 class="light grey-text text-lighten-3">Desde las clasicas hasta con camarones... <br> Descubrí tu preferida</h5>
+            </div>
+        </li>
+        <li>
+            <img src="/images/horno.png"> <!-- random image -->
+            <div class="caption center-align">
+                <h3>Horno a la piedra</h3>
+                <h5 class="light grey-text text-lighten-3">Gracias a nuestros hornos, el piso es super crocante y delicioso</h5>
+            </div>
+        </li>
+    </ul>
+</div>
+
+
+<div id="lista-productos" class="container">
+    <h3 id="nuestros productos" class="center red-text">Nuestros Productos</h3>
+    <h5 id="canastitas">CANASTITAS <span class="precio">$ @Avanti_MVC.Models.ProductosService.ObtenerPrecioPorCategoria("canastita")</span> </h5>
+    <div id="divisor" class="divider"></div>
+
+    <div class="row">
+
+        @{
+            foreach (var p in Avanti_MVC.Models.ProductosService.ObtenerProductoPorCategoria("Canastita"))
+            {
+
+                <div class="col s12 m3 l2">
+                            <div class="card">
+                                <div class="card-image waves-effect waves-block waves-light">
+                                    <img class="activator" src="images/Canastitas/@(p.Producto).jpg">
+                                    <span class="hide">@p.Precio</span>
+                                    <p class="hide">@p.Producto</p>
+                                    <a class="btn-floating halfway-fab waves-effect waves-light" data-id="@p.Id_producto"><i class="material-icons agregar-carrito">add</i></a>
+                                </div>
+                                <div class="card-content">
+                                    <p class="center activator">@p.Producto<i class="material-icons right">more_vert</i></p>                                    
+                                </div>
+                                <div class="card-reveal">
+                                    <span class="card-title"><i class="material-icons right">close</i></span>
+                                    <span class="card-title">@p.Producto</span>
+                                    <p>@p.Descripcion</p>
+                                </div>
+                            </div>
+                </div>
+
+
+            }
+
+        }
+
+    </div>
+
+    <div class="row">
+        <h5 id="empanadas">EMPANADAS <span class="precio">$ @Avanti_MVC.Models.ProductosService.ObtenerPrecioPorCategoria("empanada")</span> </h5>
+        <div id="divisor" class="divider"></div>
+        @{
+            foreach (var p in Avanti_MVC.Models.ProductosService.ObtenerProductoPorCategoria("Empanada"))
+            {
+
+                <div class="col s12 m3 l2">
+                            <div class="card">
+                                <div class="card-image">
+                                    <img src="images/Empanadas/@(p.Producto).jpg">
+                                    <span class="card-title hide">@p.Precio</span>
+                                    <p class="hide">@p.Producto</p>
+                                    <a class="btn-floating halfway-fab waves-effect waves-light red" data-id="@p.Id_producto"><i class="material-icons agregar-carrito">add</i></a>
+                                </div>
+                                <div class="card-content">
+                                    <p class="center">@p.Producto</p>
+                                </div>
+                                <div class="card-reveal">
+                                    <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+                                    <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                                </div>
+                            </div>
+                </div>
+
+       
+            }
+
+        }
+
+    </div>
+
+
+
+</div>
+
+
+@*<div class="col s12 m3 l2">
+        <div class="card">
+            <div class="card-image">
+                <img src="images/canastitas/ciruela.jpg">
+                <span class="card-title hide">60</span>
+                <p class="hide">Muzz. Panceta y Ciruela</p>
+                <a class="btn-floating halfway-fab waves-effect waves-light red" data-id="3"><i class="material-icons agregar-carrito">add</i></a>
+            </div>
+            <div class="card-content">
+                <p class="center">Panceta y Ciruela</p>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m3 l2">
+        <div class="card">
+            <div class="card-image">
+                <img src="images/canastitas/JYQ.jpg">
+                <span class="card-title hide">60</span>
+                <p class="hide">Pollo al Champignon</p>
+                <a class="btn-floating halfway-fab waves-effect waves-light red" data-id="4"><i class="material-icons agregar-carrito">add</i></a>
+            </div>
+            <div class="card-content">
+                <p class="center">Pollo al Champignon</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col s12 m3 l2">
+        <div class="card">
+            <div class="card-image">
+                <img src="images/canastitas/albahaca.jpg">
+                <span class="card-title hide">60</span>
+                <p class="hide">AVANTI</p>
+                <a class="btn-floating halfway-fab waves-effect waves-light red" data-id="5"><i class="material-icons agregar-carrito">add</i></a>
+            </div>
+            <div class="card-content">
+                <p class="center">AVANTI</p>
+            </div>
+        </div>
+    </div> <div class="col s12 m3 l2">
+        <div class="card">
+            <div class="card-image">
+                <img src="images/canastitas/JYQ.jpg">
+                <span class="card-title hide">60</span>
+                <p class="hide">Jamon y Queso</p>
+                <a class="btn-floating halfway-fab waves-effect waves-light red" data-id="6"><i class="material-icons agregar-carrito">add</i></a>
+            </div>
+            <div class="card-content">
+                <p class="center">Jamon y Queso</p>
+            </div>
+        </div>
+    </div>
+
+
+
+        </div>
+    </div>*@
+
+
+
+<!-- Compiled and minified JavaScript and JQuery-->
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<!-- <script src="js/bootstrap.min.js"></script>      -->
+<script src="js/sweetalert2.min.js"></script>
+<script src="js/carrito.js"></script>
+<script src="js/pedido.js"></script>
+<script src="/Scripts.js"></script>
+<script src="/sw-register.js"></script>

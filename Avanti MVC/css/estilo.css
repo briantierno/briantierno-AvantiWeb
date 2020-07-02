@@ -1,0 +1,66 @@
+#cargando {
+    display: none;
+}
+
+  body {
+            font-family: 'Architects Daughter', cursive;
+        }
+
+        nav .nav-wrapper {
+            position: initial;
+        }
+
+        #logo {
+            height: 56px;
+            width: 62px;
+        }
+
+        .card .card-content {
+            padding: 24px 0px;
+        }
+
+        .card-content {
+            font-family: roboto;
+        }
+         .precio {
+             font-family: Roboto;
+            font-weight: 300;
+            font-size: 1rem;
+            color: #fff;
+            background-color: #f44336;
+            border-radius: 4px;
+            padding: 4px 8px;
+        }
+
+        .btn-floating {
+            background-color: #e0dc75
+        }
+
+       #divisor{
+            margin-bottom: 40px;
+        }
+
+        .waves-effect  {
+            overflow: inherit
+         }
+
+
+
+    @media only screen and (min-width: 993px) {
+        .container {
+            max-width: 1600px;
+            width: 85%;
+        }
+    }
+
+    @media only screen and (min-width: 1366px) and (max-width: 1850px) {
+        .card-content {
+            font-size: 0.8em;
+        }
+    }
+
+    @media only screen and (min-width: 800px) and (max-width: 1200px) {
+        .card-content {
+            font-size: 0.7em;
+        }
+    }

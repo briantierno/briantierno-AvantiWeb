@@ -1,0 +1,364 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="AvantiTestModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="8.0" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="clientes">
+          <Key>
+            <PropertyRef Name="ID_cliente" />
+          </Key>
+          <Property Name="ID_cliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Sucursal" Type="text" Nullable="false" />
+          <Property Name="Nombre" Type="text" Nullable="false" />
+          <Property Name="Telefono" Type="text" Nullable="false" />
+          <Property Name="Direccion" Type="text" Nullable="false" />
+          <Property Name="Email" Type="text" Nullable="false" />
+          <Property Name="Observaciones" Type="text" Nullable="false" />
+          <Property Name="PassWord" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Agendado" Type="bool" Nullable="false" />
+          <Property Name="Validado" Type="bool" Nullable="false" />
+        </EntityType>
+        <EntityType Name="motoqueros">
+          <Key>
+            <PropertyRef Name="ID_motoquero" />
+          </Key>
+          <Property Name="ID_motoquero" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="text" Nullable="false" />
+          <Property Name="DNI" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Telefono" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Direccion" Type="text" Nullable="false" />
+          <Property Name="Patente" Type="text" Nullable="false" />
+          <Property Name="Alta" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="pedidoitems">
+          <Key>
+            <PropertyRef Name="ID_pedidoitem" />
+          </Key>
+          <Property Name="ID_pedidoitem" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_pedido" Type="int" Nullable="false" />
+          <Property Name="ID_producto" Type="int" Nullable="false" />
+          <Property Name="Producto" Type="text" Nullable="false" />
+          <Property Name="Cantidad" Type="double" Nullable="false" />
+          <Property Name="Precio" Type="double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="pedidos">
+          <Key>
+            <PropertyRef Name="ID_pedido" />
+          </Key>
+          <Property Name="ID_pedido" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fecha" Type="date" Nullable="false" />
+          <Property Name="Hora" Type="time" Precision="0" Nullable="false" />
+          <Property Name="PedidoN" Type="int" Nullable="false" />
+          <Property Name="ID_Cliente" Type="int" Nullable="false" />
+          <Property Name="Notas" Type="text" Nullable="false" />
+          <Property Name="Total" Type="double" Nullable="false" />
+          <Property Name="Efectivo" Type="double" Nullable="false" />
+          <Property Name="Vuelto" Type="double" Nullable="false" />
+          <Property Name="abonajusto" Type="bool" Nullable="false" />
+          <Property Name="ID_Motoquero" Type="int" Nullable="false" />
+          <Property Name="Estado" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="productos">
+          <Key>
+            <PropertyRef Name="Id_producto" />
+          </Key>
+          <Property Name="Id_producto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Producto" Type="text" Nullable="false" />
+          <Property Name="Descripcion" Type="text" Nullable="false" />
+          <Property Name="Stock" Type="int" Nullable="false" />
+          <Property Name="Precio" Type="double" Nullable="false" />
+          <Property Name="Categoria" Type="text" Nullable="false" />
+        </EntityType>
+        <Association Name="pedidoitems_ibfk_1">
+          <End Role="pedidos" Type="Self.pedidos" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="pedidoitems" Type="Self.pedidoitems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pedidos">
+              <PropertyRef Name="ID_pedido" />
+            </Principal>
+            <Dependent Role="pedidoitems">
+              <PropertyRef Name="ID_pedido" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="pedidos_ibfk_1">
+          <End Role="clientes" Type="Self.clientes" Multiplicity="1" />
+          <End Role="pedidos" Type="Self.pedidos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="clientes">
+              <PropertyRef Name="ID_cliente" />
+            </Principal>
+            <Dependent Role="pedidos">
+              <PropertyRef Name="ID_Cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="pedidos_ibfk_2">
+          <End Role="motoqueros" Type="Self.motoqueros" Multiplicity="1" />
+          <End Role="pedidos" Type="Self.pedidos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="motoqueros">
+              <PropertyRef Name="ID_motoquero" />
+            </Principal>
+            <Dependent Role="pedidos">
+              <PropertyRef Name="ID_Motoquero" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AvantiTestModelStoreContainer">
+          <EntitySet Name="clientes" EntityType="Self.clientes" Schema="avantitest" store:Type="Tables" />
+          <EntitySet Name="motoqueros" EntityType="Self.motoqueros" Schema="avantitest" store:Type="Tables" />
+          <EntitySet Name="pedidoitems" EntityType="Self.pedidoitems" Schema="avantitest" store:Type="Tables" />
+          <EntitySet Name="pedidos" EntityType="Self.pedidos" Schema="avantitest" store:Type="Tables" />
+          <EntitySet Name="productos" EntityType="Self.productos" Schema="avantitest" store:Type="Tables" />
+          <AssociationSet Name="pedidoitems_ibfk_1" Association="Self.pedidoitems_ibfk_1">
+            <End Role="pedidos" EntitySet="pedidos" />
+            <End Role="pedidoitems" EntitySet="pedidoitems" />
+          </AssociationSet>
+          <AssociationSet Name="pedidos_ibfk_1" Association="Self.pedidos_ibfk_1">
+            <End Role="clientes" EntitySet="clientes" />
+            <End Role="pedidos" EntitySet="pedidos" />
+          </AssociationSet>
+          <AssociationSet Name="pedidos_ibfk_2" Association="Self.pedidos_ibfk_2">
+            <End Role="motoqueros" EntitySet="motoqueros" />
+            <End Role="pedidos" EntitySet="pedidos" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AvantiTestModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="clientes">
+          <Key>
+            <PropertyRef Name="ID_cliente" />
+          </Key>
+          <Property Name="ID_cliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Sucursal" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Telefono" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Direccion" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Observaciones" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PassWord" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Agendado" Type="Boolean" Nullable="false" />
+          <Property Name="Validado" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="pedidos" Relationship="Self.pedidos_ibfk_1" FromRole="clientes" ToRole="pedidos" />
+        </EntityType>
+        <EntityType Name="motoqueros">
+          <Key>
+            <PropertyRef Name="ID_motoquero" />
+          </Key>
+          <Property Name="ID_motoquero" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DNI" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Telefono" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Direccion" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Patente" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Alta" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="pedidos" Relationship="Self.pedidos_ibfk_2" FromRole="motoqueros" ToRole="pedidos" />
+        </EntityType>
+        <EntityType Name="pedidoitems">
+          <Key>
+            <PropertyRef Name="ID_pedidoitem" />
+          </Key>
+          <Property Name="ID_pedidoitem" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_pedido" Type="Int32" Nullable="false" />
+          <Property Name="ID_producto" Type="Int32" Nullable="false" />
+          <Property Name="Producto" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Cantidad" Type="Double" Nullable="false" />
+          <Property Name="Precio" Type="Double" Nullable="false" />
+          <NavigationProperty Name="pedidos" Relationship="Self.pedidoitems_ibfk_1" FromRole="pedidoitems" ToRole="pedidos" />
+        </EntityType>
+        <EntityType Name="pedidos">
+          <Key>
+            <PropertyRef Name="ID_pedido" />
+          </Key>
+          <Property Name="ID_pedido" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fecha" Type="DateTime" Nullable="false" />
+          <Property Name="Hora" Type="Time" Nullable="false" />
+          <Property Name="PedidoN" Type="Int32" Nullable="false" />
+          <Property Name="ID_Cliente" Type="Int32" Nullable="false" />
+          <Property Name="Notas" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Total" Type="Double" Nullable="false" />
+          <Property Name="Efectivo" Type="Double" Nullable="false" />
+          <Property Name="Vuelto" Type="Double" Nullable="false" />
+          <Property Name="abonajusto" Type="Boolean" Nullable="false" />
+          <Property Name="ID_Motoquero" Type="Int32" Nullable="false" />
+          <Property Name="Estado" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="clientes" Relationship="Self.pedidos_ibfk_1" FromRole="pedidos" ToRole="clientes" />
+          <NavigationProperty Name="motoqueros" Relationship="Self.pedidos_ibfk_2" FromRole="pedidos" ToRole="motoqueros" />
+          <NavigationProperty Name="pedidoitems" Relationship="Self.pedidoitems_ibfk_1" FromRole="pedidos" ToRole="pedidoitems" />
+        </EntityType>
+        <EntityType Name="productos">
+          <Key>
+            <PropertyRef Name="Id_producto" />
+          </Key>
+          <Property Name="Id_producto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Producto" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="Stock" Type="Int32" Nullable="false" />
+          <Property Name="Precio" Type="Double" Nullable="false" />
+          <Property Name="Categoria" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <Association Name="pedidos_ibfk_1">
+          <End Role="clientes" Type="Self.clientes" Multiplicity="1" />
+          <End Role="pedidos" Type="Self.pedidos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="clientes">
+              <PropertyRef Name="ID_cliente" />
+            </Principal>
+            <Dependent Role="pedidos">
+              <PropertyRef Name="ID_Cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="pedidos_ibfk_2">
+          <End Role="motoqueros" Type="Self.motoqueros" Multiplicity="1" />
+          <End Role="pedidos" Type="Self.pedidos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="motoqueros">
+              <PropertyRef Name="ID_motoquero" />
+            </Principal>
+            <Dependent Role="pedidos">
+              <PropertyRef Name="ID_Motoquero" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="pedidoitems_ibfk_1">
+          <End Role="pedidos" Type="Self.pedidos" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="pedidoitems" Type="Self.pedidoitems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pedidos">
+              <PropertyRef Name="ID_pedido" />
+            </Principal>
+            <Dependent Role="pedidoitems">
+              <PropertyRef Name="ID_pedido" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AvantiTestEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="clientes" EntityType="Self.clientes" />
+          <EntitySet Name="motoqueros" EntityType="Self.motoqueros" />
+          <EntitySet Name="pedidoitems" EntityType="Self.pedidoitems" />
+          <EntitySet Name="pedidos" EntityType="Self.pedidos" />
+          <EntitySet Name="productos" EntityType="Self.productos" />
+          <AssociationSet Name="pedidos_ibfk_1" Association="Self.pedidos_ibfk_1">
+            <End Role="clientes" EntitySet="clientes" />
+            <End Role="pedidos" EntitySet="pedidos" />
+          </AssociationSet>
+          <AssociationSet Name="pedidos_ibfk_2" Association="Self.pedidos_ibfk_2">
+            <End Role="motoqueros" EntitySet="motoqueros" />
+            <End Role="pedidos" EntitySet="pedidos" />
+          </AssociationSet>
+          <AssociationSet Name="pedidoitems_ibfk_1" Association="Self.pedidoitems_ibfk_1">
+            <End Role="pedidos" EntitySet="pedidos" />
+            <End Role="pedidoitems" EntitySet="pedidoitems" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AvantiTestModelStoreContainer" CdmEntityContainer="AvantiTestEntities">
+          <EntitySetMapping Name="clientes">
+            <EntityTypeMapping TypeName="AvantiTestModel.clientes">
+              <MappingFragment StoreEntitySet="clientes">
+                <ScalarProperty Name="ID_cliente" ColumnName="ID_cliente" />
+                <ScalarProperty Name="Sucursal" ColumnName="Sucursal" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+                <ScalarProperty Name="PassWord" ColumnName="PassWord" />
+                <ScalarProperty Name="Agendado" ColumnName="Agendado" />
+                <ScalarProperty Name="Validado" ColumnName="Validado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="motoqueros">
+            <EntityTypeMapping TypeName="AvantiTestModel.motoqueros">
+              <MappingFragment StoreEntitySet="motoqueros">
+                <ScalarProperty Name="ID_motoquero" ColumnName="ID_motoquero" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="DNI" ColumnName="DNI" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Patente" ColumnName="Patente" />
+                <ScalarProperty Name="Alta" ColumnName="Alta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pedidoitems">
+            <EntityTypeMapping TypeName="AvantiTestModel.pedidoitems">
+              <MappingFragment StoreEntitySet="pedidoitems">
+                <ScalarProperty Name="ID_pedidoitem" ColumnName="ID_pedidoitem" />
+                <ScalarProperty Name="ID_pedido" ColumnName="ID_pedido" />
+                <ScalarProperty Name="ID_producto" ColumnName="ID_producto" />
+                <ScalarProperty Name="Producto" ColumnName="Producto" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pedidos">
+            <EntityTypeMapping TypeName="AvantiTestModel.pedidos">
+              <MappingFragment StoreEntitySet="pedidos">
+                <ScalarProperty Name="ID_pedido" ColumnName="ID_pedido" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Hora" ColumnName="Hora" />
+                <ScalarProperty Name="PedidoN" ColumnName="PedidoN" />
+                <ScalarProperty Name="ID_Cliente" ColumnName="ID_Cliente" />
+                <ScalarProperty Name="Notas" ColumnName="Notas" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Efectivo" ColumnName="Efectivo" />
+                <ScalarProperty Name="Vuelto" ColumnName="Vuelto" />
+                <ScalarProperty Name="abonajusto" ColumnName="abonajusto" />
+                <ScalarProperty Name="ID_Motoquero" ColumnName="ID_Motoquero" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="productos">
+            <EntityTypeMapping TypeName="AvantiTestModel.productos">
+              <MappingFragment StoreEntitySet="productos">
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Id_producto" ColumnName="Id_producto" />
+                <ScalarProperty Name="Producto" ColumnName="Producto" />
+                <ScalarProperty Name="Stock" ColumnName="Stock" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="Categoria" ColumnName="Categoria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
