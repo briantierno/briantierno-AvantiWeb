@@ -1,4 +1,6 @@
-﻿<header class="navbar-fixed">
+﻿@using Avanti_MVC.Models;
+
+<header class="navbar-fixed">
     <nav class="red">
         <div class="nav-wrapper container">
             <a id="menu" href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
@@ -150,7 +152,7 @@
 
 <div id="lista-productos" class="container">
     <h3 id="nuestros productos" class="center red-text">Nuestros Productos</h3>
-    <h5 id="canastitas">CANASTITAS <span class="precio">$ @Avanti_MVC.Models.ProductosService.ObtenerPrecioPorCategoria("canastita")</span> </h5>
+    <h5 id="canastitas">CANASTITAS <span class="precio">$ @ProductosService.ObtenerPrecioPorCategoria("canastita")</span> </h5>
     <div id="divisor" class="divider"></div>
 
     <div class="row">

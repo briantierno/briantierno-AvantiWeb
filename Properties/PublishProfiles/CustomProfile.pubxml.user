@@ -6,7 +6,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>C:\inetpub\wwwroot</_PublishTargetUrl>
+    <_PublishTargetUrl>E:\Documents\Avanti Web</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/Antlr3.Runtime.dll">
@@ -15,11 +15,17 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
     <File Include="bin/Antlr3.Runtime.pdb">
       <publishTime>09/10/2013 16:29:20</publishTime>
     </File>
+    <File Include="bin/App_global.asax.compiled">
+      <publishTime>07/04/2020 16:08:43</publishTime>
+    </File>
+    <File Include="bin/App_global.asax.dll">
+      <publishTime>07/04/2020 16:08:43</publishTime>
+    </File>
     <File Include="bin/Avanti MVC.dll">
-      <publishTime>07/03/2020 21:51:59</publishTime>
+      <publishTime>07/04/2020 16:22:42</publishTime>
     </File>
     <File Include="bin/Avanti MVC.pdb">
-      <publishTime>07/03/2020 21:51:59</publishTime>
+      <publishTime>07/04/2020 16:22:42</publishTime>
     </File>
     <File Include="bin/BouncyCastle.Crypto.dll">
       <publishTime>08/11/2018 10:03:48</publishTime>
@@ -34,7 +40,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>11/28/2018 13:04:36</publishTime>
     </File>
     <File Include="bin/es/System.Web.Mvc.resources.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>11/28/2018 13:00:00</publishTime>
     </File>
     <File Include="bin/es/System.Web.Optimization.resources.dll">
       <publishTime>02/11/2014 15:28:40</publishTime>
@@ -321,6 +327,48 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
     <File Include="Models/Avanti Model.edmx.diagram">
       <publishTime>07/01/2020 00:24:47</publishTime>
     </File>
+    <File Include="Models/AvantiEntitiesLocal.cs">
+      <publishTime>07/01/2020 13:09:04</publishTime>
+    </File>
+    <File Include="Models/BaseRepository.cs">
+      <publishTime>07/01/2020 11:21:24</publishTime>
+    </File>
+    <File Include="Models/ClienteRepository.cs">
+      <publishTime>07/01/2020 11:21:30</publishTime>
+    </File>
+    <File Include="Models/ClientesService.cs">
+      <publishTime>07/01/2020 11:09:16</publishTime>
+    </File>
+    <File Include="Models/DataContextManager.cs">
+      <publishTime>07/01/2020 11:19:38</publishTime>
+    </File>
+    <File Include="Models/MotoquerosRepository.cs">
+      <publishTime>07/01/2020 11:09:25</publishTime>
+    </File>
+    <File Include="Models/MotoquerosService.cs">
+      <publishTime>07/01/2020 11:20:10</publishTime>
+    </File>
+    <File Include="Models/PedidoComparer.cs">
+      <publishTime>07/01/2020 11:20:31</publishTime>
+    </File>
+    <File Include="Models/PedidoRepository.cs">
+      <publishTime>07/01/2020 11:24:21</publishTime>
+    </File>
+    <File Include="Models/PedidosPartialClass.cs">
+      <publishTime>07/01/2020 11:23:30</publishTime>
+    </File>
+    <File Include="Models/PedidosService.cs">
+      <publishTime>07/01/2020 11:24:07</publishTime>
+    </File>
+    <File Include="Models/ProductosRepository.cs">
+      <publishTime>07/01/2020 14:42:15</publishTime>
+    </File>
+    <File Include="Models/ProductosService.cs">
+      <publishTime>07/01/2020 16:43:08</publishTime>
+    </File>
+    <File Include="PrecompiledApp.config">
+      <publishTime>07/04/2020 16:08:40</publishTime>
+    </File>
     <File Include="Scripts/bootstrap.js">
       <publishTime>07/01/2020 00:13:55</publishTime>
     </File>
@@ -367,13 +415,13 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>07/01/2020 00:13:54</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>03/07/2020 18:34:19</publishTime>
+      <publishTime>07/04/2020 16:08:06</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>07/01/2020 00:13:54</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>07/03/2020 18:11:51</publishTime>
+      <publishTime>07/03/2020 23:36:46</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>07/01/2020 00:13:54</publishTime>
@@ -382,7 +430,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>07/01/2020 12:41:41</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>07/01/2020 15:50:26</publishTime>
+      <publishTime>07/04/2020 16:22:42</publishTime>
     </File>
   </ItemGroup>
 </Project>
