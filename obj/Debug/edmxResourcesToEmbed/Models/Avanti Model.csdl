@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AvantiTestModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="clientes">
+    <Key>
+      <PropertyRef Name="ID_cliente" />
+    </Key>
+    <Property Name="ID_cliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Sucursal" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Telefono" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Direccion" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Observaciones" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PassWord" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Agendado" Type="Boolean" Nullable="false" />
+    <Property Name="Validado" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="pedidos" Relationship="Self.pedidos_ibfk_1" FromRole="clientes" ToRole="pedidos" />
+  </EntityType>
+  <EntityType Name="motoqueros">
+    <Key>
+      <PropertyRef Name="ID_motoquero" />
+    </Key>
+    <Property Name="ID_motoquero" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DNI" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Telefono" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Direccion" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Patente" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Alta" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="pedidos" Relationship="Self.pedidos_ibfk_2" FromRole="motoqueros" ToRole="pedidos" />
+  </EntityType>
+  <EntityType Name="pedidoitems">
+    <Key>
+      <PropertyRef Name="ID_pedidoitem" />
+    </Key>
+    <Property Name="ID_pedidoitem" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_pedido" Type="Int32" Nullable="false" />
+    <Property Name="ID_producto" Type="Int32" Nullable="false" />
+    <Property Name="Producto" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Cantidad" Type="Double" Nullable="false" />
+    <Property Name="Precio" Type="Double" Nullable="false" />
+    <NavigationProperty Name="pedidos" Relationship="Self.pedidoitems_ibfk_1" FromRole="pedidoitems" ToRole="pedidos" />
+  </EntityType>
+  <EntityType Name="pedidos">
+    <Key>
+      <PropertyRef Name="ID_pedido" />
+    </Key>
+    <Property Name="ID_pedido" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Fecha" Type="DateTime" Nullable="false" />
+    <Property Name="Hora" Type="Time" Nullable="false" />
+    <Property Name="PedidoN" Type="Int32" Nullable="false" />
+    <Property Name="ID_Cliente" Type="Int32" Nullable="false" />
+    <Property Name="Notas" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Total" Type="Double" Nullable="false" />
+    <Property Name="Efectivo" Type="Double" Nullable="false" />
+    <Property Name="Vuelto" Type="Double" Nullable="false" />
+    <Property Name="abonajusto" Type="Boolean" Nullable="false" />
+    <Property Name="ID_Motoquero" Type="Int32" Nullable="false" />
+    <Property Name="Estado" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="clientes" Relationship="Self.pedidos_ibfk_1" FromRole="pedidos" ToRole="clientes" />
+    <NavigationProperty Name="motoqueros" Relationship="Self.pedidos_ibfk_2" FromRole="pedidos" ToRole="motoqueros" />
+    <NavigationProperty Name="pedidoitems" Relationship="Self.pedidoitems_ibfk_1" FromRole="pedidos" ToRole="pedidoitems" />
+  </EntityType>
+  <EntityType Name="productos">
+    <Key>
+      <PropertyRef Name="Id_producto" />
+    </Key>
+    <Property Name="Id_producto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Producto" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="Stock" Type="Int32" Nullable="false" />
+    <Property Name="Precio" Type="Double" Nullable="false" />
+    <Property Name="Categoria" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <Association Name="pedidos_ibfk_1">
+    <End Role="clientes" Type="Self.clientes" Multiplicity="1" />
+    <End Role="pedidos" Type="Self.pedidos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="clientes">
+        <PropertyRef Name="ID_cliente" />
+      </Principal>
+      <Dependent Role="pedidos">
+        <PropertyRef Name="ID_Cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="pedidos_ibfk_2">
+    <End Role="motoqueros" Type="Self.motoqueros" Multiplicity="1" />
+    <End Role="pedidos" Type="Self.pedidos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="motoqueros">
+        <PropertyRef Name="ID_motoquero" />
+      </Principal>
+      <Dependent Role="pedidos">
+        <PropertyRef Name="ID_Motoquero" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="pedidoitems_ibfk_1">
+    <End Role="pedidos" Type="Self.pedidos" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="pedidoitems" Type="Self.pedidoitems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pedidos">
+        <PropertyRef Name="ID_pedido" />
+      </Principal>
+      <Dependent Role="pedidoitems">
+        <PropertyRef Name="ID_pedido" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="AvantiTestEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="clientes" EntityType="Self.clientes" />
+    <EntitySet Name="motoqueros" EntityType="Self.motoqueros" />
+    <EntitySet Name="pedidoitems" EntityType="Self.pedidoitems" />
+    <EntitySet Name="pedidos" EntityType="Self.pedidos" />
+    <EntitySet Name="productos" EntityType="Self.productos" />
+    <AssociationSet Name="pedidos_ibfk_1" Association="Self.pedidos_ibfk_1">
+      <End Role="clientes" EntitySet="clientes" />
+      <End Role="pedidos" EntitySet="pedidos" />
+    </AssociationSet>
+    <AssociationSet Name="pedidos_ibfk_2" Association="Self.pedidos_ibfk_2">
+      <End Role="motoqueros" EntitySet="motoqueros" />
+      <End Role="pedidos" EntitySet="pedidos" />
+    </AssociationSet>
+    <AssociationSet Name="pedidoitems_ibfk_1" Association="Self.pedidoitems_ibfk_1">
+      <End Role="pedidos" EntitySet="pedidos" />
+      <End Role="pedidoitems" EntitySet="pedidoitems" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
