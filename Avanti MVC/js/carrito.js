@@ -103,7 +103,8 @@ contarproductos(){
         }
         this.eliminarProductoLocalStorage(productoID);
         this.contarproductos();
-        this.calcularTotal();       
+        this.calcularTotal();
+        $('.dropdown-trigger2').dropdown('recalculateDimensions');
 
     }
 
@@ -115,6 +116,7 @@ contarproductos(){
         }
         this.vaciarLocalStorage();
         document.getElementById('contador').style.display = 'none';
+        $('.dropdown-trigger2').dropdown('close');
 
         return false;
     }

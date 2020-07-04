@@ -1,39 +1,7 @@
-﻿@{
-    ViewBag.Title = "Home Page";
-}
-
-@*<div class="jumbotron">
-        <h1>ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-        <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-    </div>
-
-    <div class="row">
-        <div class="col-md-4">
-            <h2>@Avanti_MVC.Models.ClientesService.ObtenerClientesPorTelefono("1169781508").Nombre</h2>
-            <p>
-                ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-                enables a clean separation of concerns and gives you full control over markup
-                for enjoyable, agile development.
-            </p>
-            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-            <h2>Get more libraries</h2>
-            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-            <h2>Web Hosting</h2>
-            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-        </div>
-    </div>*@
-
-<div class="navbar-fixed">
+﻿<header class="navbar-fixed">
     <nav class="red">
         <div class="nav-wrapper container">
-            <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
+            <a id="menu" href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
             <a href="#" class="brand-logo" style="position: relative; margin-left: -45px;">
                 <i>
                     <img class="dropdown-trigger2" data-target="carrito" id="logo" src="/Avanti Logo.png" alt="">
@@ -58,14 +26,25 @@
 
             <ul class="right hide-on-med-and-down">
 
-                <li><a href="#"><i class="right"><img src="/images/whatsapp.png" width="15" height="15" alt=""></i> 11-1234-5678</a></li>
-                <li class="active"><a href="#nuestros productos">Nuestros Productos</a></li>
+                <li><a target="_blank" href="http://wa.me/541167921430"><i class="right"><img src="/images/whatsapp.png" width="15" height="15" alt=""></i> 11-1234-5678</a></li>
                 <li>
-                    <a class="dropdown-trigger" href="#!" data-target="dropdown1">ORDENAR<i class="material-icons right">arrow_drop_down</i></a>
-                    <ul id="dropdown1" class="dropdown-content">
-                        <li><a href="#!">RINCON DE MILBERG</a></li>
+                    <a class="dropdown-trigger" data-target="menuproductos" href="#!"> MENU <i class="material-icons right">arrow_drop_down</i></a>
+                    <ul id="menuproductos" class="dropdown-content">
+                        <li><a href="#canastitas">Canastitas</a></li>
                         <li class="divider"></li>
-                        <li><a href="#!">TIGRE</a></li>
+                        <li><a href="#empanadas">Empanadas</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#pizzas">Pizzas</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#!">Bebidas</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="dropdown-trigger" href="#!" data-target="dropdown1" id="sucursales">SUCURSALES<i class="material-icons right">arrow_drop_down</i></a>
+                    <ul id="dropdown1" class="dropdown-content">
+                        <li><a target="_blank" href="https://www.google.com/search?q=avanti%20pizzas%20y%20empanadas&rlz=1C1CHZL_esAR892AR892&oq=avanti+pizzas+y+empanadas+&aqs=chrome..69i57j35i39j0l2j69i60j69i61j69i60.4684j0j7&sourceid=chrome&ie=UTF-8&sxsrf=ALeKk03_0sMCM8FHTcLx2ug1j83jh6b2hg:1593801511068&npsic=0&rflfq=1&rlha=0&rllag=-34432422,-58569583,2944&tbm=lcl&rldimm=4867199680383280696&lqi=ChlhdmFudGkgcGl6emFzIHkgZW1wYW5hZGFzWjYKGWF2YW50aSBwaXp6YXMgeSBlbXBhbmFkYXMiGWF2YW50aSBwaXp6YXMgeSBlbXBhbmFkYXM&phdesc=iy_WcwNIGbw&ved=2ahUKEwjCjqOn3bHqAhXeJrkGHVQ0DF4QvS4wAnoECA0QNQ&rldoc=1&tbs=lrf:!1m4!1u3!2m2!3m1!1e1!1m4!1u2!2m2!2m1!1e1!2m1!1e2!2m1!1e3!3sIAE,lf:1,lf_ui:9&rlst=f#rlfi=hd:;si:4867199680383280696,l,ChlhdmFudGkgcGl6emFzIHkgZW1wYW5hZGFzWjYKGWF2YW50aSBwaXp6YXMgeSBlbXBhbmFkYXMiGWF2YW50aSBwaXp6YXMgeSBlbXBhbmFkYXM,y,iy_WcwNIGbw;mv:[[-34.4160743,-58.5395501],[-34.4487708,-58.59961769999999]];tbs:lrf:!1m4!1u3!2m2!3m1!1e1!1m4!1u2!2m2!2m1!1e1!2m1!1e2!2m1!1e3!3sIAE,lf:1,lf_ui:9">RINCON DE MILBERG</a></li>
+                        <li class="divider"></li>
+                        <li><a target="_blank" href="https://www.google.com/search?q=avanti%20pizzas%20y%20empanadas&rlz=1C1CHZL_esAR892AR892&oq=avanti+pizzas+y+empanadas+&aqs=chrome..69i57j35i39j0l2j69i60j69i61j69i60.4684j0j7&sourceid=chrome&ie=UTF-8&sxsrf=ALeKk03_0sMCM8FHTcLx2ug1j83jh6b2hg:1593801511068&npsic=0&rflfq=1&rlha=0&rllag=-34432422,-58569583,2944&tbm=lcl&rldimm=4867199680383280696&lqi=ChlhdmFudGkgcGl6emFzIHkgZW1wYW5hZGFzWjYKGWF2YW50aSBwaXp6YXMgeSBlbXBhbmFkYXMiGWF2YW50aSBwaXp6YXMgeSBlbXBhbmFkYXM&phdesc=iy_WcwNIGbw&ved=2ahUKEwjCjqOn3bHqAhXeJrkGHVQ0DF4QvS4wAnoECA0QNQ&rldoc=1&tbs=lrf:!1m4!1u3!2m2!3m1!1e1!1m4!1u2!2m2!2m1!1e1!2m1!1e2!2m1!1e3!3sIAE,lf:1,lf_ui:9&rlst=f#rlfi=hd:;si:13091667990250208937,l,ChlhdmFudGkgcGl6emFzIHkgZW1wYW5hZGFzWjYKGWF2YW50aSBwaXp6YXMgeSBlbXBhbmFkYXMiGWF2YW50aSBwaXp6YXMgeSBlbXBhbmFkYXM,y,jpfYQqfRVaE;mv:[[-34.4160743,-58.5395501],[-34.4487708,-58.59961769999999]];tbs:lrf:!1m4!1u3!2m2!3m1!1e1!1m4!1u2!2m2!2m1!1e1!2m1!1e2!2m1!1e3!3sIAE,lf:1,lf_ui:9">TIGRE</a></li>
                         <li class="divider"></li>
                         <li><a href="#!">SAN FERNANDO</a></li>
                         <li class="divider"></li>
@@ -75,22 +54,35 @@
             </ul>
         </div>
     </nav>
-</div>
+</header>
 
 <ul class="sidenav" id="mobile-demo">
 
-    <li><a href="#"><i><img src="/images/whatsapp.png" width="20" height="20" alt="envianos un whatsapp!!"></i> 11-1234-5678</a></li>
-    <li class="active"><a href="#nuestros productos">Nuestros Productos</a></li>
+    <li><a class="sidenav-close" target="_blank" href="http://wa.me/541167921430"><i><img src="/images/whatsapp.png" width="20" height="20" alt="envianos un whatsapp!!"></i> 11-1234-5678</a></li>
     <li>
-        <a class="dropdown-trigger" href="#!" data-target="dropdown2">ORDENAR<i class="material-icons right">arrow_drop_down</i></a>
+        <a class="dropdown" data-target="menuproductos" href="#!"> MENU </a>
+    <ul class="divider"></ul>
+    <ul id="menuproductos" class="dropdown">
+        <li><a class="sidenav-close" href="#canastitas">Canastitas</a></li>
+        
+        <li><a class="sidenav-close" href="#empanadas">Empanadas</a></li>
+        
+        <li><a class="sidenav-close" href="#pizzas">Pizzas</a></li>
+      
+        <li><a class="sidenav-close" href="#!">Bebidas</a></li>
+    </ul>
+    </li>
+    <li>
+        <ul class="divider"></ul>
+        <a class="dropdown-trigger" href="#!" data-target="dropdown2">SUCURSALES<i class="material-icons right">arrow_drop_down</i></a>
         <ul id="dropdown2" class="dropdown-content">
-            <li><a href="#!">RINCON DE MILBERG</a></li>
+            <li><a class="sidenav-close" target="_blank" href="https://www.google.com/search?q=avanti%20pizzas%20y%20empanadas&rlz=1C1CHZL_esAR892AR892&oq=avanti+pizzas+y+empanadas+&aqs=chrome..69i57j35i39j0l2j69i60j69i61j69i60.4684j0j7&sourceid=chrome&ie=UTF-8&sxsrf=ALeKk03_0sMCM8FHTcLx2ug1j83jh6b2hg:1593801511068&npsic=0&rflfq=1&rlha=0&rllag=-34432422,-58569583,2944&tbm=lcl&rldimm=4867199680383280696&lqi=ChlhdmFudGkgcGl6emFzIHkgZW1wYW5hZGFzWjYKGWF2YW50aSBwaXp6YXMgeSBlbXBhbmFkYXMiGWF2YW50aSBwaXp6YXMgeSBlbXBhbmFkYXM&phdesc=iy_WcwNIGbw&ved=2ahUKEwjCjqOn3bHqAhXeJrkGHVQ0DF4QvS4wAnoECA0QNQ&rldoc=1&tbs=lrf:!1m4!1u3!2m2!3m1!1e1!1m4!1u2!2m2!2m1!1e1!2m1!1e2!2m1!1e3!3sIAE,lf:1,lf_ui:9&rlst=f#rlfi=hd:;si:4867199680383280696,l,ChlhdmFudGkgcGl6emFzIHkgZW1wYW5hZGFzWjYKGWF2YW50aSBwaXp6YXMgeSBlbXBhbmFkYXMiGWF2YW50aSBwaXp6YXMgeSBlbXBhbmFkYXM,y,iy_WcwNIGbw;mv:[[-34.4160743,-58.5395501],[-34.4487708,-58.59961769999999]];tbs:lrf:!1m4!1u3!2m2!3m1!1e1!1m4!1u2!2m2!2m1!1e1!2m1!1e2!2m1!1e3!3sIAE,lf:1,lf_ui:9">RINCON DE MILBERG</a></li>
             <li class="divider"></li>
-            <li><a href="#!">TIGRE</a></li>
+            <li><a class="sidenav-close" target="_blank" href="https://www.google.com/search?q=avanti%20pizzas%20y%20empanadas&rlz=1C1CHZL_esAR892AR892&oq=avanti+pizzas+y+empanadas+&aqs=chrome..69i57j35i39j0l2j69i60j69i61j69i60.4684j0j7&sourceid=chrome&ie=UTF-8&sxsrf=ALeKk03_0sMCM8FHTcLx2ug1j83jh6b2hg:1593801511068&npsic=0&rflfq=1&rlha=0&rllag=-34432422,-58569583,2944&tbm=lcl&rldimm=4867199680383280696&lqi=ChlhdmFudGkgcGl6emFzIHkgZW1wYW5hZGFzWjYKGWF2YW50aSBwaXp6YXMgeSBlbXBhbmFkYXMiGWF2YW50aSBwaXp6YXMgeSBlbXBhbmFkYXM&phdesc=iy_WcwNIGbw&ved=2ahUKEwjCjqOn3bHqAhXeJrkGHVQ0DF4QvS4wAnoECA0QNQ&rldoc=1&tbs=lrf:!1m4!1u3!2m2!3m1!1e1!1m4!1u2!2m2!2m1!1e1!2m1!1e2!2m1!1e3!3sIAE,lf:1,lf_ui:9&rlst=f#rlfi=hd:;si:13091667990250208937,l,ChlhdmFudGkgcGl6emFzIHkgZW1wYW5hZGFzWjYKGWF2YW50aSBwaXp6YXMgeSBlbXBhbmFkYXMiGWF2YW50aSBwaXp6YXMgeSBlbXBhbmFkYXM,y,jpfYQqfRVaE;mv:[[-34.4160743,-58.5395501],[-34.4487708,-58.59961769999999]];tbs:lrf:!1m4!1u3!2m2!3m1!1e1!1m4!1u2!2m2!2m1!1e1!2m1!1e2!2m1!1e3!3sIAE,lf:1,lf_ui:9">TIGRE</a></li>
             <li class="divider"></li>
-            <li><a href="#!">SAN FERNANDO</a></li>
+            <li><a class="sidenav-close" href="#!">SAN FERNANDO</a></li>
             <li class="divider"></li>
-            <li><a href="#!">BENAVIDEZ</a></li>
+            <li><a class="sidenav-close" href="#!">BENAVIDEZ</a></li>
         </ul>
 </ul>
 
@@ -167,28 +159,26 @@
             foreach (var p in Avanti_MVC.Models.ProductosService.ObtenerProductoPorCategoria("Canastita"))
             {
 
-                <div class="col s12 m3 l2">
-                            <div class="card">
-                                <div class="card-image waves-effect waves-block waves-light">
-                                    <img class="activator" src="images/Canastitas/@(p.Producto).jpg">
-                                    <span class="hide">@p.Precio</span>
-                                    <p class="hide">@p.Producto</p>
-                                    <a class="btn-floating halfway-fab waves-effect waves-light" data-id="@p.Id_producto"><i class="material-icons agregar-carrito">add</i></a>
-                                </div>
-                                <div class="card-content">
-                                    <p class="center activator">@p.Producto<i class="material-icons right">more_vert</i></p>                                    
-                                </div>
-                                <div class="card-reveal">
-                                    <span class="card-title"><i class="material-icons right">close</i></span>
-                                    <span class="card-title">@p.Producto</span>
-                                    <p>@p.Descripcion</p>
-                                </div>
-                            </div>
+                <div class="col s6 m3 l2">
+                    <div class="card">
+                        <div class="card-image waves-block waves-light">
+                            <img class="activator" src="images/Canastitas/@(p.Producto).jpg">
+                            <span class="hide">@p.Precio</span>
+                            <p class="hide">@p.Producto</p>
+                            <a class="btn-floating halfway-fab waves-effect waves-light" data-id="@p.Id_producto"><i class="material-icons agregar-carrito">add</i></a>
+                        </div>
+                        <div class="card-content activator">
+                            <span><i class="material-icons right">more_vert</i></span>
+                            <p class="center activator">@p.Producto</p>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title"><i class="material-icons right">close</i></span>
+                            <span class="card-title">@p.Producto</span>
+                            <p class="card-title">@p.Descripcion</p>
+                        </div>
+                    </div>
                 </div>
-
-
             }
-
         }
 
     </div>
@@ -200,31 +190,61 @@
             foreach (var p in Avanti_MVC.Models.ProductosService.ObtenerProductoPorCategoria("Empanada"))
             {
 
-                <div class="col s12 m3 l2">
-                            <div class="card">
-                                <div class="card-image">
-                                    <img src="images/Empanadas/@(p.Producto).jpg">
-                                    <span class="card-title hide">@p.Precio</span>
-                                    <p class="hide">@p.Producto</p>
-                                    <a class="btn-floating halfway-fab waves-effect waves-light red" data-id="@p.Id_producto"><i class="material-icons agregar-carrito">add</i></a>
-                                </div>
-                                <div class="card-content">
-                                    <p class="center">@p.Producto</p>
-                                </div>
-                                <div class="card-reveal">
-                                    <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                                    <p>Here is some more information about this product that is only revealed once clicked on.</p>
-                                </div>
-                            </div>
+                <div class="col s6 m3 l2">
+                    <div class="card">
+                        <div class="card-image  waves-block waves-light">
+                            <img class="activator" src="images/empanadas/@(p.Producto).jpg">
+                            <span class="hide">@p.Precio</span>
+                            <p class="hide">@p.Producto</p>
+                            <a class="btn-floating halfway-fab waves-effect waves-light" data-id="@p.Id_producto"><i class="material-icons agregar-carrito">add</i></a>
+                        </div>
+                        <div class="card-content activator">
+                            <span><i class="material-icons right">more_vert</i></span>
+                            <p class="center activator">@p.Producto</p>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title"><i class="material-icons right">close</i></span>
+                            <span class="card-title">@p.Producto</span>
+                            <p>@p.Descripcion</p>
+                        </div>
+                    </div>
                 </div>
-
-       
             }
-
         }
 
     </div>
 
+
+    <div class="row">
+        <h5 id="pizzas">PIZZAS <span class="precio">MUZZA ---> $ @Avanti_MVC.Models.ProductosService.ObtenerPrecioPorCategoria("pizza")</span> </h5>
+        <div id="divisor" class="divider"></div>
+        @{
+            foreach (var p in Avanti_MVC.Models.ProductosService.ObtenerProductoPorCategoria("pizza"))
+            {
+
+                <div class="col s6 m3 l2">
+                    <div class="card">
+                        <div class="card-image waves-block waves-light">
+                            <img class="activator" src="images/pizzas/@(p.Producto).jpg">
+                            <span class="hide">@p.Precio</span>
+                            <p class="hide">@p.Producto</p>
+                            <a class="btn-floating halfway-fab waves-effect waves-light" data-id="@p.Id_producto"><i class="material-icons agregar-carrito">add</i></a>
+                        </div>
+                        <div class="card-content activator">
+                            <span><i class="material-icons right">more_vert</i></span>
+                            <p class="center activator">@p.Producto</p>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title"><i class="material-icons right">close</i></span>
+                            <span class="card-title">@p.Producto</span>
+                            <p>@p.Descripcion</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+
+    </div>
 
 
 </div>
@@ -292,7 +312,7 @@
 
 <!-- Compiled and minified JavaScript and JQuery-->
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <!-- <script src="js/bootstrap.min.js"></script>      -->
 <script src="js/sweetalert2.min.js"></script>

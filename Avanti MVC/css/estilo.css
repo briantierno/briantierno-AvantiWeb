@@ -15,17 +15,22 @@
             width: 62px;
         }
 
+         .card .card-title {
+            font-size: initial;
+            font-weight: 300;
+        }
+
         .card .card-content {
-            padding: 24px 0px;
+            padding: 24px 0px;            
         }
 
         .card-content {
             font-family: roboto;
         }
          .precio {
-             font-family: Roboto;
+            font-family: Roboto;
             font-weight: 300;
-            font-size: 1rem;
+            font-size: 1.5rem;
             color: #fff;
             background-color: #f44336;
             border-radius: 4px;
@@ -36,7 +41,13 @@
             background-color: #e0dc75
         }
 
+        h5{ 
+            margin-top: 80px;
+
+        }
+
        #divisor{
+          
             margin-bottom: 40px;
         }
 
@@ -46,11 +57,18 @@
 
 
 
+@media only screen and (max-width: 993px) {
+  
+    .card .card-content {        
+        min-height: 90px;
+    }
+}
+
     @media only screen and (min-width: 993px) {
         .container {
             max-width: 1600px;
             width: 85%;
-        }
+        }      
     }
 
     @media only screen and (min-width: 1366px) and (max-width: 1850px) {
